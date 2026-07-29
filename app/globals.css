@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  :focus-visible {
+    outline: 2px solid #E8873B;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-clash);
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .river-path {
+    stroke-dasharray: 1500;
+    stroke-dashoffset: 1500;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .container-px {
+    @apply px-6 md:px-10 lg:px-16;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* fallback border color token used by shadcn-style components */
+:root {
+  --border: 220 13% 91%;
+}
+.border-border {
+  border-color: hsl(var(--border));
+}
